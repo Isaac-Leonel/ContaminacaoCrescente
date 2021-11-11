@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table( name= "Usuarios")
 public class Usuario {
 
 
@@ -13,7 +15,7 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private static final long serialVersionUID = 1L;
     private long id;
-    
+
     private String nome;
     private String email;
     private String senha;
