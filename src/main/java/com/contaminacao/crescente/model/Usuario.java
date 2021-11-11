@@ -2,6 +2,7 @@ package com.contaminacao.crescente.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,10 +18,15 @@ public class Usuario implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(name = "nome", nullable = false)
     private String nome;
+    @Column(name = "email", nullable = false)
     private String email;
+    @Column(name = "senha", nullable = false)
     private String senha;
+    @Column(name = "data", nullable = false)
     private String data;
+    @Column(name = "cpf", nullable = false)
     private String cpf;
 
 
