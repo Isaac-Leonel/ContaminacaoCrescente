@@ -6,6 +6,8 @@ import com.contaminacao.crescente.model.Usuario;
 import com.contaminacao.crescente.services.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,12 @@ public class UsuarioController {
     public String salvarUsuario(@RequestBody Usuario usuario, HttpServletRequest request){
 
         return service.salvarUsuario(usuario);
+    }
+
+    @GetMapping("/validar-usuario/{email}/{senha}")
+    public boolean validarUsuario(@PathVariable("email") String email,@PathVariable("senha") String senha){
+
+        return service.validarUsuario(email, senha);
     }
 
 }
