@@ -1,5 +1,7 @@
 package com.contaminacao.crescente.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,12 +10,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table( name= "Usuarios")
-public class Usuario {
+public class Usuario implements Serializable{
 
-
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private static final long serialVersionUID = 1L;
     private long id;
 
     private String nome;
