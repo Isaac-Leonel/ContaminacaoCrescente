@@ -38,6 +38,9 @@ public class UsuarioService {
         }
     }
 
+
+    // Validação CPF
+
     public static boolean isCPF(String CPF) {
 
         
