@@ -7,6 +7,8 @@ import { InputLoginComponent } from './input-login/input-login.component';
 import { ButtonLoComponent } from './button-lo/button-lo.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HomeComponent } from './home/home.component';
+import { CadastroPageComponent } from './cadastro-page/cadastro-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,12 @@ import { HomeComponent } from './home/home.component';
     ButtonLoComponent,
     LoginPageComponent,
     HomeComponent,
+    CadastroPageComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

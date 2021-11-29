@@ -11,6 +11,8 @@ export class InputLoginComponent implements OnInit {
 
   @Input() idInput: String = ' ';
 
+  @Input() ModelPegar: String = ' ';
+
 
   constructor() { }
 
