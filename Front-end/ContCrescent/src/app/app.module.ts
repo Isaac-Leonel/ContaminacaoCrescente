@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 import { InputLoginComponent } from './input-login/input-login.component';
 import { ButtonLoComponent } from './button-lo/button-lo.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { HomeComponent } from './home/home.component';
 import { CadastroPageComponent } from './cadastro-page/cadastro-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +16,14 @@ import { FormsModule } from '@angular/forms';
     InputLoginComponent,
     ButtonLoComponent,
     LoginPageComponent,
-    HomeComponent,
     CadastroPageComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,7 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonLoComponent implements OnInit {
 
-  @Input() textButton: string = " ";
+  @Input() textButton: string = " ";  
+
+  @Input() tipo: String = "button";
   constructor() { }
 
   ngOnInit(): void {

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro-page',
@@ -8,15 +12,26 @@ import { Component, OnInit } from '@angular/core';
 export class CadastroPageComponent implements OnInit {
 
 
-  senha: any = '';
 
-  verificarSenha(){
-    console.log(this.senha)
+  profileForm = this.fb.group({
+    nome: ['', Validators.required],
+    email: ['', Validators.required],
+    dataN: ['', Validators.required],
+    CPF: ['', Validators.required],
+    senha: ['', Validators.required],
+  });
+
+  onSubmit() {
+    if(this.profileForm.invalid){
+      alert("Gentileza preencher todo o formulario!")
+    }else{
+      console.log(this.profileForm.value);
+    }
   }
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {}
 
 }

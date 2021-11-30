@@ -1,13 +1,33 @@
 <section class="containerLogin">
-    <a href="https://imgbb.com/"><img src="https://i.ibb.co/qj1drH3/LOGO.png"/></a>
+  <a href="https://imgbb.com/"><img src="https://i.ibb.co/qj1drH3/LOGO.png" /></a>
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <div class="inputsCont">
-      <app-input-login idInput="Nome" tipoDeTexto="Nome Completo"></app-input-login>
-      <app-input-login idInput="idade" tipoDeTexto="Idade"></app-input-login>
-      <app-input-login idInput="CEP" tipoDeTexto="CEP"></app-input-login>
-      <app-input-login idInput="email" ></app-input-login>
-      <app-input-login ModelPegar="senha" idInput="senha" tipoDeTexto="Senha"></app-input-login>
-      <app-input-login idInput="Confsenha" tipoDeTexto="Confirmação de Senha"></app-input-login>
-    </div>  
-    <app-button-lo textButton="CONCLUIR"></app-button-lo>
-    <app-button-lo routerLink="/login" textButton="VOLTAR AO LOGIN"></app-button-lo>
-  </section>
+      <div>
+        <p>Nome Completo</p>
+        <input class="inputPadrao" type="text" formControlName="nome" placeholder="">
+      </div>
+      <div>
+        <p>Email</p>
+        <input class="inputPadrao" type="email" formControlName="email" placeholder="Email">
+      </div>
+      <div>
+        <p>Data de Nascimento</p>
+        <input class="inputPadrao" type="date" formControlName="dataN" placeholder="Data de Nascimento">
+      </div>
+      <div>
+        <p>CPF</p>
+        <input class="inputPadrao" type="text" formControlName="CPF" placeholder="CPF">
+      </div>
+      <div>
+        <p>Senha</p>
+        <input class="inputPadrao" type="email" formControlName="senha" placeholder="Senha">
+      </div>
+    </div>
+    <div>
+      <app-button-lo tipo="submit" textButton="CONCLUIR"></app-button-lo>
+      <app-button-lo routerLink="/" textButton="VOLTAR AO LOGIN"></app-button-lo>
+    </div>
+  </form>
+
+</section>
