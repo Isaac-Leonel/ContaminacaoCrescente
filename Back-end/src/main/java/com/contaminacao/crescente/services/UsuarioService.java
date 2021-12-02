@@ -28,7 +28,7 @@ public class UsuarioService {
                 return "CPF invalido!";
             }
         } catch (Exception e) {
-            return "Erro ao salvar!";
+            return "Não foi possivel salvar!";
         }
     }
 

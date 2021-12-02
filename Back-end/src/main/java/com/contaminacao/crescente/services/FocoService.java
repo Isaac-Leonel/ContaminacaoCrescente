@@ -20,4 +20,8 @@ public class FocoService {
         repository.save(focos);
     }
 
+    public String verificarLocal(String lng, String lat){
+        return "";
+    }
+
 }

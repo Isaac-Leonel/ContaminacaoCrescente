@@ -1,9 +1,15 @@
 <section class="containerLogin">
     <a href="https://imgbb.com/"><img src="https://i.ibb.co/qj1drH3/LOGO.png"/></a>
     <div class="inputsCont">
-      <app-input-login idInput="email"></app-input-login>
-      <app-input-login idInput="senha" tipoDeTexto="Senha"></app-input-login>
+      <div>
+        <input class="inputPadrao" type="text" [(ngModel)]="lng.email" placeholder="EMAIL">
+      </div>
+      <div>
+        <input class="inputPadrao" type="text" [(ngModel)]="lng.senha" placeholder="SENHA">
+      </div>
+      <!-- <app-input-login [(ngModel)]="lng.email" idInput="email"></app-input-login>
+      <app-input-login [(ngModel)]="lng.senha" idInput="senha" tipoDeTexto="Senha"></app-input-login> -->
     </div>
-    <app-button-lo routerLink="/dashboard" textButton="LOGIN"></app-button-lo>
+    <app-button-lo (click)="validar()" textButton="LOGIN"></app-button-lo>
     <app-button-lo routerLink="/cadastro" textButton="CADASTRAR"></app-button-lo>
   </section>

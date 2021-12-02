@@ -1,3 +1,4 @@
+import { ContServiceService } from './cont-service.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,6 +11,7 @@ import { CadastroPageComponent } from './cadastro-page/cadastro-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NovoFocoComponent } from './novo-foco/novo-foco.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,8 +28,9 @@ import { NovoFocoComponent } from './novo-foco/novo-foco.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [HttpClientModule, ContServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

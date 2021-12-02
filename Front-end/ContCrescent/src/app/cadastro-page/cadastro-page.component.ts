@@ -1,8 +1,6 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Usuario } from './usuario.model';
+import { ContServiceService, } from './../cont-service.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cadastro-page',
@@ -12,25 +10,16 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class CadastroPageComponent implements OnInit {
 
 
+  modelo:Usuario = new Usuario();
 
-  profileForm = this.fb.group({
-    nome: ['', Validators.required],
-    email: ['', Validators.required],
-    dataN: ['', Validators.required],
-    CPF: ['', Validators.required],
-    senha: ['', Validators.required],
-  });
+  registrar(){
+    this.service.usuarioSave(this.modelo).subscribe(user => {
+      this.modelo = new Usuario();
 
-  onSubmit() {
-    if(this.profileForm.invalid){
-      alert("Gentileza preencher todo o formulario!")
-    }else{
-      console.log(this.profileForm.value);
-    }
+    })
   }
 
-
-  constructor(private fb: FormBuilder) {}
+  constructor(private service:ContServiceService) {}
 
   ngOnInit(): void {}
 
