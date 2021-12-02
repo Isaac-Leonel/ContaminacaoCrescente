@@ -9,6 +9,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { CadastroPageComponent } from './cadastro-page/cadastro-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NovoFocoComponent } from './novo-foco/novo-foco.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoginPageComponent,
     CadastroPageComponent,
     DashboardComponent,
+    NovoFocoComponent,
   ],
   imports: [
     BrowserModule,

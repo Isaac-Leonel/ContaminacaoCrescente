@@ -1,0 +1,29 @@
+<section class="containerLogin">
+    <a href="https://imgbb.com/"><img src="https://i.ibb.co/qj1drH3/LOGO.png" /></a>
+  
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="inputsCont">
+        <div>
+          <p>ENDEREÇO DO FOCO: *</p>
+          <input class="inputPadrao" type="text" formControlName="ender">
+        </div>
+        <div>
+          <p>PRINCIPAL CAUSA: *</p> 
+          <select name="" id="">
+            <option *ngFor="let causa of causas" value="">{{ causas }}</option>
+          </select>
+        </div>
+        <div>
+          <p>DESCRIÇÃO:</p>
+          <input class="inputDesc" type="text" formControlName="dataN">
+        </div>
+      </div>
+      <div>
+        <app-button-lo tipo="submit" textButton="CONCLUIR"></app-button-lo>
+        <app-button-lo routerLink="/" textButton="VOLTAR AO LOGIN"></app-button-lo>
+      </div>
+    </form>
+  
+  </section>
+  
+
