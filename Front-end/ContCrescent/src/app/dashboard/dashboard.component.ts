@@ -9,6 +9,8 @@ export class DashboardComponent implements OnInit {
   lat: number = 0;
   lng: number = 0;
 
+  localUsu: any = 0;
+
   ngOnInit() {
     this.getUserLocation();
  }
@@ -19,6 +21,7 @@ export class DashboardComponent implements OnInit {
          this.lat = position.coords.latitude;
          this.lng = position.coords.longitude;
          console.log(this.lat + " e " + this.lng)
+         this.localUsu = this.lat + " | " + this.lng;
        });
       }
       else {
