@@ -1,8 +1,7 @@
 package com.contaminacao.crescente.services;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 import com.contaminacao.crescente.repository.GrafoRioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +12,7 @@ public class GrafoRioService {
     @Autowired
     private GrafoRioRepository repository;
 
-    public void gerarGrafo() {
+    public ArrayList<String> gerarGrafo() {
 
         Integer quantidadeVertice = repository.ultimoId();
         Integer G[][] = new Integer[quantidadeVertice][quantidadeVertice];
@@ -52,42 +51,29 @@ public class GrafoRioService {
         }
         boolean visi[] = new boolean[G.length];
         int ini = 39;
-        buscaEmProfundidadeNaoInterativa(visi, ini, vertices, G);
-        // buscaEmLarguraNaoInterativa(G, vertices);
+        ArrayList<String> teste = new ArrayList<>();
+        return buscaEmProfundidadeNaoInterativa(visi, ini, vertices, G, teste);
+
     }
 
-    public void buscaEmProfundidadeNaoInterativa(boolean visitado[], int inicio, String vertices[], Integer G[][]) {
+    public ArrayList<String> buscaEmProfundidadeNaoInterativa(boolean visitado[], int inicio, String vertices[],
+            Integer G[][], ArrayList<String> teste) {
         visitado[inicio] = true;
-        System.out.print(vertices[inicio] + " - ");
+        Long quantidadeRelatos = repository.buscarQuantidadeRelatos(vertices[inicio]);
+        String nome;
+        if (quantidadeRelatos == null) {
+            nome = vertices[inicio] + " quantidade de Relatos é " + 0 + " - ";
+        } else {
+            nome = vertices[inicio] + " quantidade de Relatos é " + quantidadeRelatos + " - ";
+        }
+        teste.add(nome);
         int i;
         for (i = 0; i < G.length; i++) {
             if (G[inicio][i] == 1 && visitado[i] == false) {
-                buscaEmProfundidadeNaoInterativa(visitado, i, vertices, G);
+
+                buscaEmProfundidadeNaoInterativa(visitado, i, vertices, G, teste);
             }
         }
-    }
-
-    public void buscaEmLarguraNaoInterativa(Integer g[][], String vertices[]) {
-        int i, aux = g.length, first = 0;
-        Queue<Integer> Fila = new LinkedList<>();
-        Fila.add(first);
-
-        boolean visitado[] = new boolean[g.length];
-
-        while (aux != 0) {
-            first = Fila.poll();
-            visitado[first] = true;
-
-            System.out.print(vertices[first] + " - ");
-            for (i = 0; i < g.length; i++) {
-                // System.out.println(g[first][i]);
-                if (g[first][i] != 0 && visitado[i] == false) {
-                    Fila.add(i);
-                }
-                if (i == g.length - 1) {
-                    aux--;
-                }
-            }
-        }
+        return teste;
     }
 }

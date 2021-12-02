@@ -21,4 +21,7 @@ public interface GrafoRioRepository extends JpaRepository<Rio, Long>{
 
     @Query(value = "SELECT `ponto_referencia` FROM `rio` ORDER BY `id`" , nativeQuery = true)
     public List<String> buscarNomeAresta();
+
+    @Query(value = "SELECT f.quantidade_relatos FROM `rio` r inner join focos f on f.id_vertice = r.id WHERE `ponto_referencia` =:pontoReferencia", nativeQuery = true)
+    public Long buscarQuantidadeRelatos(@Param("pontoReferencia") String pontoReferencia);
 }

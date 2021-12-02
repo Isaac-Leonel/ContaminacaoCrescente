@@ -13,24 +13,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
-    
+
     @Autowired
     private UsuarioService service;
-    
+
     @PostMapping("/salvar-usuario")
-    public String salvarUsuario(@RequestBody Usuario usuario, HttpServletRequest request){
+    public String salvarUsuario(@RequestBody Usuario usuario, HttpServletRequest request) {
 
         return service.salvarUsuario(usuario);
     }
 
     @GetMapping("/validar-usuario/{email}/{senha}")
-    public boolean validarUsuario(@PathVariable("email") String email,@PathVariable("senha") String senha){
+    public boolean validarUsuario(@PathVariable("email") String email, @PathVariable("senha") String senha) {
 
         return service.validarUsuario(email, senha);
+    }
+
+    @GetMapping("/informar-foco/{idVertice}")
+    public String informarFoco(@PathVariable("idVertice") Long idVertice) {
+       
+        return service.informarFoco(idVertice);
     }
 
 }

@@ -1,5 +1,7 @@
 package com.contaminacao.crescente.controllers;
 
+import java.util.ArrayList;
+
 import com.contaminacao.crescente.services.GrafoRioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,7 @@ public class GrafoRioController {
     private GrafoRioService service; 
 
     @GetMapping(value = "gerar")
-    public void grafo(){
-        service.gerarGrafo();
+    public ArrayList<String> grafo(){
+      return  service.gerarGrafo();
     }
 }
