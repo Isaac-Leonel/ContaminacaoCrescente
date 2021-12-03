@@ -1,11 +1,7 @@
 package com.contaminacao.crescente.controllers;
 
 import java.util.List;
-<<<<<<< Updated upstream
 
-import com.contaminacao.crescente.dto.PontoReferenciaDTO;
-=======
->>>>>>> Stashed changes
 import com.contaminacao.crescente.services.FocoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,14 +20,8 @@ public class FocosController {
     private FocoService service;
 
     @GetMapping("/longlat/{lng}/{lat}")
-<<<<<<< Updated upstream
     public List<Object> validarUsuario(@PathVariable("lng") String lng, @PathVariable("lat") String lat) {
 
-=======
-
-    public List<Object> validarUsuario(@PathVariable("lng") String lng, @PathVariable("lat") String lat) {
-       System.out.println(lng + " " + lat);
->>>>>>> Stashed changes
         return service.verificarLocal(lng, lat);
     }
 

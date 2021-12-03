@@ -15,4 +15,8 @@
         <option *ngFor="let c of countries" [ngValue]="c">{{c.name}}</option>
       </select>
   </div>
+
+  <div class="refPonto">
+    <app-button-lo (click)="enviarFoco();" textButton="ENVIAR FOCO"></app-button-lo>
+  </div>
 </section>
