@@ -1,3 +1,4 @@
+import { Relatorio } from './relatorio/relatorio.model';
 import { InfoFoco } from './novo-foco/info-foco.model';
 import { Foco } from './novo-foco/foco.model';
 import { Login } from './login-page/login.model';
@@ -27,8 +28,12 @@ export class ContServiceService {
   return this.http.get("http://localhost:8080/focos/longlat/".concat(foco.lat)+"/".concat(foco.lng));
   }
 
-  enviarFoco(infoFoco:InfoFoco){
+  enviarFoco(infoFoco:InfoFoco):Observable<any>{
     return this.http.get("http://localhost:8080/usuario/informar-foco/"+ infoFoco.idVertice +"/".concat(infoFoco.causaPoluicao));
+  }
+
+  receberRelatorio():Observable<any>{
+    return this.http.get("http://localhost:8080/grafo/gerar");
   }
 
 }

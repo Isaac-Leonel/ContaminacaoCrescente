@@ -2,16 +2,16 @@ package com.contaminacao.crescente.dto;
 
 public class GrafoDTO {
 
-    String pontoReferecnia;
+    String pontoReferencia;
 
     Long quantidadeRelato;
 
-    public String getPontoReferecnia() {
-        return pontoReferecnia;
+    public String getPontoReferencia() {
+        return pontoReferencia;
     }
 
-    public void setPontoReferecnia(String pontoReferecnia) {
-        this.pontoReferecnia = pontoReferecnia;
+    public void setPontoReferencia(String pontoReferecnia) {
+        this.pontoReferencia = pontoReferecnia;
     }
 
     public Long getQuantidadeRelato() {

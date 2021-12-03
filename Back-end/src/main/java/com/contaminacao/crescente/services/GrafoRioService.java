@@ -63,7 +63,7 @@ public class GrafoRioService {
         Long quantidadeRelatos = repository.buscarQuantidadeRelatos(vertices[inicio]);
         GrafoDTO dto = new GrafoDTO();
         if (quantidadeRelatos != null) {
-            dto.setPontoReferecnia(vertices[inicio]);
+            dto.setPontoReferencia(vertices[inicio]);
             dto.setQuantidadeRelato(quantidadeRelatos);
             teste.add(dto);
         } else {
