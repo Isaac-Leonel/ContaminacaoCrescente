@@ -1,3 +1,4 @@
+import { Resultado } from './resultado.model';
 import { ContServiceService } from './../cont-service.service';
 import { Foco } from './foco.model';
 import { Component, Inject, OnInit } from '@angular/core';
@@ -10,11 +11,9 @@ import { DOCUMENT } from '@angular/common';
 })
 export class NovoFocoComponent implements OnInit {
 
-  lat: number = 0;
-  lng: number = 0;
-
   local:Foco = new Foco();
-  result: string = '';
+  list:Resultado = new Resultado();
+  lists:Array<any> = new Array();
 
   ngOnInit() {
     this.getUserLocation();
@@ -23,10 +22,8 @@ export class NovoFocoComponent implements OnInit {
  getUserLocation() {
     if (navigator.geolocation) {
      navigator.geolocation.getCurrentPosition(position => {
-         this.lat = position.coords.latitude;
-         this.lng = position.coords.longitude;
-         this.local.lat = this.lat + "";
-         this.local.lng = this.lng + "";
+         this.local.lat = position.coords.latitude + "";
+         this.local.lng = position.coords.longitude + "";
        });
       }
       else {
@@ -37,8 +34,8 @@ export class NovoFocoComponent implements OnInit {
   enviarFoco(){ 
     this.service.enviarLocal(this.local).subscribe(loc =>{
       this.local = new Foco();
-      this.result = loc;
-      
+      this.lists = loc;
+      console.log(this.lists);
     })
   }
 
