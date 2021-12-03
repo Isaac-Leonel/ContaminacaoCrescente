@@ -41,7 +41,7 @@ public class UsuarioService {
         }
     }
 
-    public String informarFoco(Long idVertice) {
+    public String informarFoco(Long idVertice, String causaPoluicao) {
         try {
             Long quantidade = repository.quantidadeRelatos(idVertice);
             System.out.println("A quantidade é: "+quantidade);
@@ -49,7 +49,7 @@ public class UsuarioService {
                 quantidade++;
                 repository.atualizarRelatos(quantidade, idVertice);
             }else {
-                focoService.salvarNovoFoco(idVertice);
+                focoService.salvarNovoFoco(idVertice, causaPoluicao);
             }
             return "Atualizado com sucesso!";
         } catch (Exception e) {

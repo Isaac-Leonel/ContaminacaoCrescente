@@ -21,11 +21,12 @@ public class FocoService {
     @Autowired
     private GrafoRioRepository rioRepository;
 
-    public void salvarNovoFoco(Long idVertice) {
+    public void salvarNovoFoco(Long idVertice, String causaPoluicao) {
         Focos focos = new Focos();
         focos.setIdVertice(idVertice);
         Long quantidadeRelatos = (long) 1;
         focos.setQuantidadeRelatos(quantidadeRelatos);
+        focos.setCausaPoluicao(causaPoluicao);
         repository.save(focos);
     }
 
@@ -37,7 +38,7 @@ public class FocoService {
         double ltd1 = Double.parseDouble(lat);
         double menor = 999999999;
         long id;
-        List<Object> sections = new ArrayList <Object>();
+        List<Object> sections = new ArrayList<Object>();
 
         for (Rio rio2 : rio) {
             double lgn2 = Double.parseDouble(rio2.getLatitude());

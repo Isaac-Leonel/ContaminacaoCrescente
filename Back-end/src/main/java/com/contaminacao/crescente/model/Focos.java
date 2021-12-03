@@ -11,8 +11,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "focos")
-public class Focos implements Serializable{
-    
+public class Focos implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,6 +23,9 @@ public class Focos implements Serializable{
 
     @Column(name = "quantidade_relatos", nullable = false)
     private Long quantidadeRelatos;
+
+    @Column(name = "causa_poluicao", nullable = false)
+    private String causaPoluicao;
 
     public Long getIdVertice() {
         return idVertice;
@@ -51,7 +54,13 @@ public class Focos implements Serializable{
     public void setId(long id) {
         this.id = id;
     }
-    
-    
+
+    public String getCausaPoluicao() {
+        return causaPoluicao;
+    }
+
+    public void setCausaPoluicao(String causaPoluicao) {
+        this.causaPoluicao = causaPoluicao;
+    }
 
 }

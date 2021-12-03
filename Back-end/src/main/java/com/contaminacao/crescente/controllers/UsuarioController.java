@@ -32,9 +32,9 @@ public class UsuarioController {
         return service.validarUsuario(email, senha);
     }
 
-    @GetMapping("/informar-foco/{idVertice}")
-    public String informarFoco(@PathVariable("idVertice") Long idVertice) {
-        return service.informarFoco(idVertice);
+    @GetMapping("/informar-foco/{idVertice}/{causaPoluicao}")
+    public String informarFoco(@PathVariable("idVertice") Long idVertice, @PathVariable("causaPoluicao") String causaPoluicao) {
+        return service.informarFoco(idVertice, causaPoluicao);
     }
 
 }
