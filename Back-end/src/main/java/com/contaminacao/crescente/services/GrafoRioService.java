@@ -61,11 +61,10 @@ public class GrafoRioService {
             Integer G[][], ArrayList<Object> teste) {
         visitado[inicio] = true;
         Long quantidadeRelatos = repository.buscarQuantidadeRelatos(vertices[inicio]);
-        GrafoDTO dto = new GrafoDTO();
+       
         if (quantidadeRelatos != null) {
-            dto.setPontoReferencia(vertices[inicio]);
-            dto.setQuantidadeRelato(quantidadeRelatos);
-            teste.add(dto);
+            teste.add(vertices[inicio]);
+            teste.add(quantidadeRelatos);
         } else {
         }
         int i;
