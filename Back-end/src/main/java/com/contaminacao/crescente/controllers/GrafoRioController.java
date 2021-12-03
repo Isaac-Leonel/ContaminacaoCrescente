@@ -17,7 +17,7 @@ public class GrafoRioController {
     private GrafoRioService service; 
 
     @GetMapping(value = "gerar")
-    public ArrayList<String> grafo(){
+    public ArrayList<Object> grafo(){
       return  service.gerarGrafo();
     }
 }
