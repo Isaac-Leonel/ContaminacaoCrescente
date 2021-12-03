@@ -50,7 +50,7 @@ export class NovoFocoComponent implements OnInit {
     this.service.enviarLocal(this.local).subscribe(loc =>{
       this.local = new Foco();
       this.lists = loc;
-      console.log(this.lists[1]);
+      console.log(this.lists[1], this.lists[0]);
     })
   }
 
@@ -58,10 +58,11 @@ export class NovoFocoComponent implements OnInit {
     this.iFoco.idVertice = this.lists[0];
     this.iFoco.causaPoluicao = this.selectedValue;
     console.log(this.iFoco.causaPoluicao, this.iFoco.idVertice);
-    this.service.enviarFoco(this.iFoco).subscribe(foco =>{
-      this.iFoco = new InfoFoco();
-      this.focoSalvo = foco;
-    })
+      this.service.enviarFoco(this.iFoco).subscribe(foco =>{
+        this.iFoco = new InfoFoco();
+        this.focoSalvo = foco;
+        alert("Foco de poluição enviado com sucesso! Agradeçemos sua ajuda.")
+      })
   }
 
 

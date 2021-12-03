@@ -4,8 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.contaminacao.crescente.model.Usuario;
 import com.contaminacao.crescente.services.UsuarioService;
+import com.google.gson.Gson;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +24,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioService service;
 
+
     @PostMapping("/salvar-usuario")
     public String salvarUsuario(@RequestBody Usuario usuario, HttpServletRequest request) {
         return service.salvarUsuario(usuario);
@@ -32,9 +35,10 @@ public class UsuarioController {
         return service.validarUsuario(email, senha);
     }
 
-    @GetMapping("/informar-foco/{idVertice}/{causaPoluicao}")
-    public String informarFoco(@PathVariable("idVertice") Long idVertice, @PathVariable("causaPoluicao") String causaPoluicao) {
-        return service.informarFoco(idVertice, causaPoluicao);
+    @GetMapping(value = "/informar-foco/{idVertice}/{causaPoluicao}")
+    public ResponseEntity<String> informarFoco(@PathVariable("idVertice") Long idVertice, @PathVariable("causaPoluicao") String causaPoluicao) {
+        return ResponseEntity.ok(new Gson().toJson(service.informarFoco(idVertice, causaPoluicao)));
+        
     }
 
 }

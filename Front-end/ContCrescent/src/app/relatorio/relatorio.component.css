@@ -72,3 +72,25 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }
+
+  .containerFlex{
+    margin-top: 10px;
+    margin-inline: -20px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-between;
+  }
+
+  h2{
+    color: white;
+    margin-inline: 10vw;
+    font-size: 0.8rem;
+  }
+
+  .tituloFlex{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }

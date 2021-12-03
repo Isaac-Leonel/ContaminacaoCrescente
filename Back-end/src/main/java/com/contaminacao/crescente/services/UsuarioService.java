@@ -46,7 +46,7 @@ public class UsuarioService {
             focoService.salvarNovoFoco(idVertice, causaPoluicao);
             return "Atualizado com sucesso!";
         } catch (Exception e) {
-            return "Erro ao atualizar!";
+            return e + " ";
         }
     }
 

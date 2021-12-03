@@ -3,23 +3,20 @@
     <a href=""><img src="https://i.ibb.co/qj1drH3/LOGO.png" /></a>
   </div>
   <div class="refPonto">
+    <app-button-lo routerLink="/dashboard" textButton="VOLTAR"></app-button-lo>
     <app-button-lo (click)="gerarRelatorio();" textButton="GERAR RELATORIO"></app-button-lo>
   </div>
 
+<div class="tituloFlex">
   <div>
-    <table>
-      <tr>
-        <th>LOCAL: </th>
-        <th>DENUNCIAS: </th>
-      </tr>
-      <tr>
-        <td>RUA TANAAN</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>RUA TANAAN</td>
-        <td>3</td>
-      </tr>
-    </table>
+    <p>LOCAL  |  DENUNCIAS</p>
+  </div>
+</div>
+
+
+  <div class="containerFlex">
+      <div *ngFor="let linha of list">
+        <h2>{{ linha }}</h2>
+      </div>
   </div>
 </section>

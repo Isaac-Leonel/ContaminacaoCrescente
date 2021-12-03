@@ -9,14 +9,15 @@ import { ContServiceService } from '../cont-service.service';
 })
 export class RelatorioComponent implements OnInit {
 
-  relatorio:Array<any> = new Array();
   modelRelatorio:Relatorio = new Relatorio();
+  list:Array<any> = new Array();
+
+  cont: number = 0;
 
   gerarRelatorio(){
     this.service.receberRelatorio().subscribe(rel =>{
       this.modelRelatorio = new Relatorio();
-      this.relatorio = rel;
-      console.log(this.relatorio[0], this.relatorio[1])
+      this.list = rel;
     })
   }
 

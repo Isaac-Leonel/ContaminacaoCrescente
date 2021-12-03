@@ -24,8 +24,8 @@ export class ContServiceService {
     return this.http.get("http://localhost:8080/usuario/validar-usuario/".concat(login.email)+"/".concat(login.senha));
   }
 
-  enviarLocal (foco:Foco):Observable<any>{
-  return this.http.get("http://localhost:8080/focos/longlat/".concat(foco.lat)+"/".concat(foco.lng));
+   enviarLocal (foco:Foco):Observable<any>{
+   return this.http.get("http://localhost:8080/focos/longlat/".concat(foco.lat)+"/".concat(foco.lng));
   }
 
   enviarFoco(infoFoco:InfoFoco):Observable<any>{
