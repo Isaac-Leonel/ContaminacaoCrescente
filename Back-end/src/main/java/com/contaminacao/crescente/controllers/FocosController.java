@@ -1,10 +1,6 @@
 package com.contaminacao.crescente.controllers;
 
-<<<<<<< Updated upstream
 import java.util.List;
-=======
-import javax.servlet.http.HttpServletRequest;
->>>>>>> Stashed changes
 
 import com.contaminacao.crescente.dto.PontoReferenciaDTO;
 import com.contaminacao.crescente.services.FocoService;
@@ -27,13 +23,8 @@ public class FocosController {
     private FocoService service;
 
     @GetMapping("/longlat/{lng}/{lat}")
-<<<<<<< Updated upstream
     public List<Object> validarUsuario(@PathVariable("lng") String lng, @PathVariable("lat") String lat) {
 
-=======
-    public @ResponseBody PontoReferenciaDTO validarUsuario(@PathVariable("lng") String lng, @PathVariable("lat") String lat, HttpServletRequest request) {
-        System.out.println(lng + " " + lat);
->>>>>>> Stashed changes
         return service.verificarLocal(lng, lat);
     }
 

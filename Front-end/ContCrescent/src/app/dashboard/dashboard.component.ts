@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ContServiceService } from '../cont-service.service';
+import { Foco } from '../novo-foco/foco.model';
+import { Resultado } from '../novo-foco/resultado.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,26 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  lat: number = 0;
-  lng: number = 0;
 
-  localUsu: any = 0;
+
 
   ngOnInit() {
-    this.getUserLocation();
  }
 
- getUserLocation() {
-    if (navigator.geolocation) {
-     navigator.geolocation.getCurrentPosition(position => {
-         this.lat = position.coords.latitude;
-         this.lng = position.coords.longitude;
-         console.log(this.lat + " e " + this.lng)
-         this.localUsu = this.lat + " | " + this.lng;
-       });
-      }
-      else {
-        alert("Impossivel encontrar localização! Gentileza permitir uso para melhor experiencia com aplicativo.")
-      }
+
+  constructor() {}
+
 }
-}
+

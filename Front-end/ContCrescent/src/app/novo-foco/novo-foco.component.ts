@@ -17,6 +17,7 @@ export class NovoFocoComponent implements OnInit {
 
   ngOnInit() {
     this.getUserLocation();
+    
  }
 
  getUserLocation() {
@@ -24,6 +25,7 @@ export class NovoFocoComponent implements OnInit {
      navigator.geolocation.getCurrentPosition(position => {
          this.local.lat = position.coords.latitude + "";
          this.local.lng = position.coords.longitude + "";
+         this.enviarFoco();
        });
       }
       else {
@@ -35,9 +37,17 @@ export class NovoFocoComponent implements OnInit {
     this.service.enviarLocal(this.local).subscribe(loc =>{
       this.local = new Foco();
       this.lists = loc;
-      console.log(this.lists);
+      console.log(this.lists[1]);
     })
   }
+
+  countries = [
+    {id: 1, name: "Lixo Quimico"},
+    {id: 2, name: "Ação Humana"},
+    {id: 3, name: "Lixo Industrial"},
+    {id: 4, name: "Esgoto"}
+ ];
+ selectedValue = null;
 
   constructor(private service:ContServiceService, @Inject(DOCUMENT)private document:any) {}
 

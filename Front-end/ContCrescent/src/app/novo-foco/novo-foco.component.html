@@ -1,2 +1,18 @@
-<button (click)="enviarFoco()">MOSTRAR NO CONSOLE</button>
+<section class="containerLogin">
+  <div>
+    <a href=""><img src="https://i.ibb.co/qj1drH3/LOGO.png" /></a>
+  </div>
+  <div class="refPonto">
+    <p>Ponto de referencia mais proximo:</p>
+    <select name="pontoRefe" id="pontoRefe">
+      <option [value]="this.lists[1]">{{ this.lists[1] }}</option>
+    </select>
+  </div>
 
+  <div class="refPonto">
+    <p>Causas da poluição:</p>
+    <select [(ngModel)]="selectedValue">
+        <option *ngFor="let c of countries" [ngValue]="c">{{c.name}}</option>
+      </select>
+  </div>
+</section>
