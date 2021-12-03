@@ -3,7 +3,7 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/contaminacao_crescente
     username: root
-    password: isaac170302
+    password: 
   jpa:
     hibernate.ddl-auto: update
     generate-ddl: true
