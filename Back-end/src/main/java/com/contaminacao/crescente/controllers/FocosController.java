@@ -1,5 +1,7 @@
 package com.contaminacao.crescente.controllers;
 
+import java.util.List;
+
 import com.contaminacao.crescente.dto.PontoReferenciaDTO;
 import com.contaminacao.crescente.services.FocoService;
 
@@ -17,7 +19,7 @@ public class FocosController {
     private FocoService service;
 
     @GetMapping("/longlat/{lng}/{lat}")
-    public PontoReferenciaDTO validarUsuario(@PathVariable("lng") String lng, @PathVariable("lat") String lat) {
+    public List<Object> validarUsuario(@PathVariable("lng") String lng, @PathVariable("lat") String lat) {
 
         return service.verificarLocal(lng, lat);
     }

@@ -1,5 +1,6 @@
 package com.contaminacao.crescente.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.contaminacao.crescente.dto.PontoReferenciaDTO;
@@ -28,7 +29,7 @@ public class FocoService {
         repository.save(focos);
     }
 
-    public PontoReferenciaDTO verificarLocal(String lng, String lat) {
+    public List<Object> verificarLocal(String lng, String lat) {
         List<Rio> rio = rioRepository.findAll();
         String resposta = "";
         PontoReferenciaDTO dto = new PontoReferenciaDTO();
@@ -36,6 +37,7 @@ public class FocoService {
         double ltd1 = Double.parseDouble(lat);
         double menor = 999999999;
         long id;
+        List<Object> sections = new ArrayList <Object>();
 
         for (Rio rio2 : rio) {
             double lgn2 = Double.parseDouble(rio2.getLatitude());
@@ -52,7 +54,9 @@ public class FocoService {
             }
         }
 
-        return dto;
+        sections.add(dto.getId());
+        sections.add(dto.getPontoReferencia());
+        return sections;
     }
 
     public double distance(double lat1, double lon1, double lat2, double lon2, String sr) {
