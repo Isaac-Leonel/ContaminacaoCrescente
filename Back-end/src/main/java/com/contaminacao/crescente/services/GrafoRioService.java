@@ -2,6 +2,8 @@ package com.contaminacao.crescente.services;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.contaminacao.crescente.dto.GrafoDTO;
 import com.contaminacao.crescente.repository.GrafoRioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +14,7 @@ public class GrafoRioService {
     @Autowired
     private GrafoRioRepository repository;
 
-    public ArrayList<String> gerarGrafo() {
+    public ArrayList<Object> gerarGrafo() {
 
         Integer quantidadeVertice = repository.ultimoId();
         Integer G[][] = new Integer[quantidadeVertice][quantidadeVertice];
@@ -51,22 +53,21 @@ public class GrafoRioService {
         }
         boolean visi[] = new boolean[G.length];
         int ini = 39;
-        ArrayList<String> teste = new ArrayList<>();
+        ArrayList<Object> teste = new ArrayList<Object>();
         return buscaEmProfundidadeNaoInterativa(visi, ini, vertices, G, teste);
-
     }
 
-    public ArrayList<String> buscaEmProfundidadeNaoInterativa(boolean visitado[], int inicio, String vertices[],
-            Integer G[][], ArrayList<String> teste) {
+    public ArrayList<Object> buscaEmProfundidadeNaoInterativa(boolean visitado[], int inicio, String vertices[],
+            Integer G[][], ArrayList<Object> teste) {
         visitado[inicio] = true;
         Long quantidadeRelatos = repository.buscarQuantidadeRelatos(vertices[inicio]);
-        String nome;
-        if (quantidadeRelatos == null) {
-            nome = vertices[inicio] + " quantidade de Relatos é " + 0 + " - ";
+        GrafoDTO dto = new GrafoDTO();
+        if (quantidadeRelatos != null) {
+            dto.setPontoReferecnia(vertices[inicio]);
+            dto.setQuantidadeRelato(quantidadeRelatos);
+            teste.add(dto);
         } else {
-            nome = vertices[inicio] + " quantidade de Relatos é " + quantidadeRelatos + " - ";
         }
-        teste.add(nome);
         int i;
         for (i = 0; i < G.length; i++) {
             if (G[inicio][i] == 1 && visitado[i] == false) {
