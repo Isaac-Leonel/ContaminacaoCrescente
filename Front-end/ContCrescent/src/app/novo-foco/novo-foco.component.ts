@@ -15,6 +15,16 @@ export class NovoFocoComponent implements OnInit {
   list:Resultado = new Resultado();
   lists:Array<any> = new Array();
 
+  
+  countries = [
+    {id: 1, name: "Lixo Quimico"},
+    {id: 2, name: "Ação Humana"},
+    {id: 3, name: "Lixo Industrial"},
+    {id: 4, name: "Esgoto"}
+ ];
+ selectedValue = null;
+
+
   ngOnInit() {
     this.getUserLocation();
     
@@ -25,7 +35,7 @@ export class NovoFocoComponent implements OnInit {
      navigator.geolocation.getCurrentPosition(position => {
          this.local.lat = position.coords.latitude + "";
          this.local.lng = position.coords.longitude + "";
-         this.enviarFoco();
+         this.pegarRef();
        });
       }
       else {
@@ -33,7 +43,7 @@ export class NovoFocoComponent implements OnInit {
       }
   }
 
-  enviarFoco(){ 
+  pegarRef(){ 
     this.service.enviarLocal(this.local).subscribe(loc =>{
       this.local = new Foco();
       this.lists = loc;
@@ -41,13 +51,10 @@ export class NovoFocoComponent implements OnInit {
     })
   }
 
-  countries = [
-    {id: 1, name: "Lixo Quimico"},
-    {id: 2, name: "Ação Humana"},
-    {id: 3, name: "Lixo Industrial"},
-    {id: 4, name: "Esgoto"}
- ];
- selectedValue = null;
+  enviarFoco(){
+    
+  }
+
 
   constructor(private service:ContServiceService, @Inject(DOCUMENT)private document:any) {}
 
