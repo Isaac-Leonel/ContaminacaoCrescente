@@ -24,20 +24,17 @@ public class UsuarioController {
     private UsuarioService service;
 
     @PostMapping("/salvar-usuario")
-    public @ResponseBody String salvarUsuario(@RequestBody Usuario usuario, HttpServletRequest request) {
-
+    public String salvarUsuario(@RequestBody Usuario usuario, HttpServletRequest request) {
         return service.salvarUsuario(usuario);
     }
 
     @GetMapping("/validar-usuario/{email}/{senha}")
     public boolean validarUsuario(@PathVariable("email") String email, @PathVariable("senha") String senha) {
-
         return service.validarUsuario(email, senha);
     }
 
     @GetMapping("/informar-foco/{idVertice}")
     public String informarFoco(@PathVariable("idVertice") Long idVertice) {
-       
         return service.informarFoco(idVertice);
     }
 
