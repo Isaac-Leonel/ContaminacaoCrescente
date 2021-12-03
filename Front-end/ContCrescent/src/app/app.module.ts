@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NovoFocoComponent } from './novo-foco/novo-foco.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RelatorioComponent } from './relatorio/relatorio.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     CadastroPageComponent,
     DashboardComponent,
     NovoFocoComponent,
+    RelatorioComponent,
   ],
   imports: [
     BrowserModule,
